@@ -185,8 +185,3 @@ Finally, we want the columns on desktop to be equally-spaced:
 ![Screenshot of the footer's main nav on desktop](/docs/footer-link-alignment.png)
 
 ---
-
-## Solution
-
-View the solution on the course platform:
-https://courses.joshwcomeau.com/css-for-js/07-css-grid/19-workshop-solution
