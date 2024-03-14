@@ -26,9 +26,6 @@ const Header = () => {
                 </Row>
             </SupperHeader>
             <MainHeader>
-                <Logo />
-            </MainHeader>
-            <LaptopHeader>
                 <Actions>
                     <button>
                         <VisuallyHidden>a search bar icon , click to search for something</VisuallyHidden>
@@ -40,8 +37,10 @@ const Header = () => {
                     </button>
                 </Actions>
                 <Logo />
-                <SubscribeButton>subscribe</SubscribeButton>
-            </LaptopHeader>
+                <LeftAction>
+                    <SubscribeButton>subscribe</SubscribeButton>
+                </LeftAction>
+            </MainHeader>
         </Wrapper>
     )
 }
@@ -60,7 +59,7 @@ const SupperHeader = styled.div`
     background-color: var(--color-gray-900);
     color: var(--color-white);
     @media ${QUERIES.laptopAndUp} {
-            display: none;
+        display: none;
     }
     `;
 const Row = styled(MaxWidthWrapper)`
@@ -71,32 +70,40 @@ const Row = styled(MaxWidthWrapper)`
     & > button:last-of-type {
         margin-left: auto;
     }
-`;
-
-const LaptopHeader = styled(MaxWidthWrapper)`
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-
-    @media ${QUERIES.laptopAndUp}{
-        display: flex;
-    }
 
 `;
+
+
 
 const Actions = styled.div`
-    display: flex;
+    display: none;
     gap: 24px;
     align-items: center;
+    @media ${QUERIES.laptopAndUp} {
+        display: flex;
+    }
 `;
-const MainHeader = styled.header`
+const MainHeader = styled(MaxWidthWrapper)`
     display: block;
     @media ${QUERIES.laptopAndUp}{
-        display: none;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
     }
+`;
+const LeftAction = styled.div`
+    display: none;
+    @media ${QUERIES.laptopAndUp} {
+        display: revert;
+        
+    }
+
 `;
 const SubscribeButton = styled(Button)`
     background-color: var(--color-primary);
     color: var(--color-white);
+    margin-left: auto;
+   
 `;
+
 export default Header
